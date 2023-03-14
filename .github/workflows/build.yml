@@ -2,21 +2,20 @@ name: Build pdf
 on:
   push
 jobs:
-  create_pdf:
+  build_latex:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-      - name: Compile basic LaTeX document
-        uses: ./
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: example.tex
-          working_directory: /
-      - name: Upload
+          latexmk_use_xelatex: true
+      - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
-          name: test
-          path: test
-        if: always()
+          name: PDF
+          path: example.pdf
 
 # see https://github.com/xu-cheng/latex-action
