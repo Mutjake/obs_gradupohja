@@ -1,11 +1,60 @@
-\documentclass{article}
+\documentclass[a4paper,12pt,twoside]{report}
 \usepackage{blindtext}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=uk]{english}
+
+\usepackage{fontspec}
+
+\usepackage[english=british]{csquotes}
+\usepackage[xetex]{graphicx}
+
+% Some of this stuff from: https://github.com/ivo-s/thesis-libertinus/blob/master/thesis.tex
+\usepackage[sorting=none,style=phys,backend=biber,defernumbers=true]{biblatex}
+\usepackage[unicode]{hyperref}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\usepackage{microtype}
+\usepackage{unicode-math}
+
 \setmainfont{LibertinusSerif}[
    UprightFont = *-Regular,
    BoldFont = *-Bold,
    ItalicFont = *-Italic,
    BoldItalicFont = *-BoldItalic,
    Extension = .otf]
+
+\hypersetup{
+    pdfauthor={Juho Myllylahti},
+    pdftitle={The Title of the Thesis},
+    pdfsubject={Thesis},
+    pdfkeywords={Thesis Template}
+}
+
+\addbibresource{thesis.bib}
+
+% \includepdf{title_page.pdf} -- if doing the title page becomes too cumbersome
+
 \begin{document}
 \blinddocument
+
+%%% REFERENCES %%%
+
+\defbibheading{bibliography}[\bibname]{
+	\chapter*{References}
+	\addcontentsline{toc}{chapter}{References}
+	\markboth{\textsc{References}}{}
+}
+
+\printbibheading
+\newrefcontext{myarticles}
+\printbibliography[heading=subbibliography,resetnumbers,category=MyArticles,title={Articles covering the presented results}]
+\newrefcontext{books}
+\printbibliography[heading=subbibliography,resetnumbers,type=book,title={Books}]
+\newrefcontext{nonbooks}
+\printbibliography[heading=subbibliography,resetnumbers,nottype=book,notcategory=MyArticles,title={Articles, proceedings and theses}]
+
 \end{document}
