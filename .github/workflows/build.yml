@@ -13,7 +13,7 @@ jobs:
           root_file: example.tex
           latexmk_use_xelatex: true
           extra_fonts: |
-          ./assets/fonts/Libertinus-7.040/static/OTF/*.otf
+            ./assets/fonts/Libertinus-7.040/static/OTF/*.otf
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
