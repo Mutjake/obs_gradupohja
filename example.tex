@@ -1,60 +1,36 @@
-\documentclass[a4paper,12pt,twoside]{report}
-\usepackage{blindtext}
-\usepackage{polyglossia}
-\setdefaultlanguage[variant=uk]{english}
+\documentclass[a4paper,12pt,twoside]{report} %% The Internet told me that report is better for long things such as thesis: https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1)%3A_Basic_Structure
 
-\usepackage{fontspec}
+%\usepackage{showframe}
 
-\usepackage[english=british]{csquotes}
-\usepackage[xetex]{graphicx}
+\usepackage{obsthesis}
 
-% Some of this stuff from: https://github.com/ivo-s/thesis-libertinus/blob/master/thesis.tex
-\usepackage[sorting=none,style=phys,backend=biber,defernumbers=true]{biblatex}
-\usepackage[unicode]{hyperref}
-\usepackage{xcolor}
-\usepackage{amsmath}
-\usepackage[font=small,labelfont=bf]{caption}
-\usepackage{fancyhdr}
-\usepackage{titlesec}
-\usepackage{pdfpages}
-\usepackage{microtype}
-\usepackage{unicode-math}
+% Remember to define these in the .sty file in case you want to rename or add these
+\author{Firstname Lastname}
+\title{Title of the Thesis}
+\coursename{Master's Thesis}
+\department{Finance}
+\date{July 2023}
 
-\setmainfont{LibertinusSerif}[
-   UprightFont = *-Regular,
-   BoldFont = *-Bold,
-   ItalicFont = *-Italic,
-   BoldItalicFont = *-BoldItalic,
-   Extension = .otf]
-
-\hypersetup{
-    pdfauthor={Juho Myllylahti},
-    pdftitle={The Title of the Thesis},
-    pdfsubject={Thesis},
-    pdfkeywords={Thesis Template}
-}
-
-\addbibresource{thesis.bib}
+\addbibresource{biblatex-examples.bib}
 
 % \includepdf{title_page.pdf} -- if doing the title page becomes too cumbersome
 
 \begin{document}
-\blinddocument
+
+\begin{titlepage}
+\import{./}{titlepage.tex}
+\end{titlepage}
+
+\section{Introduction}
+
+Example reference: \autocite{sigfridsson}
+
+\section{Conclusions}
+
 
 %%% REFERENCES %%%
 
-\defbibheading{bibliography}[\bibname]{
-	\chapter*{References}
-	\addcontentsline{toc}{chapter}{References}
-	\markboth{\textsc{References}}{}
-}
-
-\printbibheading
-\newrefcontext{myarticles}
-\printbibliography[heading=subbibliography,resetnumbers,category=MyArticles,title={Articles covering the presented results}]
-\newrefcontext{books}
-\printbibliography[heading=subbibliography,resetnumbers,type=book,title={Books}]
-\newrefcontext{nonbooks}
-\printbibliography[heading=subbibliography,resetnumbers,nottype=book,notcategory=MyArticles,title={Articles, proceedings and theses}]
+\nocite{*}
+\printbibliography
 
 \end{document}

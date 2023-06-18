@@ -1,0 +1,62 @@
+\ProvidesPackage{obsthesis}
+
+%  Packages:
+% * blindtext
+%   - Can be used to create loremipsum-ish dummy text etc. using commands such as \blindtext and \Blindtext
+%   - see: https://www.texlive.info/CTAN/macros/latex/contrib/blindtext/blindtext.pdf
+% * polyglossia
+%   - Does multilingual typesetting and things like hyphenation in XeLaTeX and LuaLaTeX, alternative to babel (whatever that is)
+% * fontspec 
+%   - OpenType font support to utilize Libertinus to match the font requirements of OBS thesis
+% * csquotes
+%   - "Context sensitive quotation facilities"
+%   - AFAIK helps to get fancy quotation marks plus correct use of ellipsis etc.
+%   - Also helps with polyglossia if quoting in other languages so that the quotes are formatted and hyphenated correctly it seems
+%   - And I quess this helps when needing referenced quote from the source material
+% * graphicx
+%   - Better support for including graphics to the document
+
+\usepackage{blindtext} 
+\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage[english=british]{csquotes}
+\usepackage[xetex]{graphicx}
+\usepackage{setspace}
+\usepackage[bottom=2.5cm,top=2.5cm,left=2cm,right=2cm]{geometry}
+
+\def\citeapos#1{\citeauthor{#1} \citeyear{#1}}
+
+% Some of this stuff from: https://github.com/ivo-s/thesis-libertinus/blob/master/thesis.tex
+\usepackage[style=apa,citestyle=apa,backend=biber]{biblatex}
+\usepackage[unicode]{hyperref}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\usepackage{microtype}
+\usepackage{unicode-math}
+\usepackage{import}
+
+\setdefaultlanguage[variant=uk]{english} % UK english to make Chris Bradley happy (thank you for the CDMP course!)
+
+\setmainfont{LibertinusSerif}[
+   UprightFont = *-Regular,
+   BoldFont = *-Bold,
+   ItalicFont = *-Italic,
+   BoldItalicFont = *-BoldItalic,
+   Extension = .otf]
+
+\def\author{\def\author}
+\def\title{\def\title}
+\def\coursename{\def\coursename}
+\def\department{\def\department}
+\def\date{\def\date}
+
+\hypersetup{
+    pdfauthor={Juho Myllylahti},
+    pdftitle={The Title of the Thesis},
+    pdfsubject={Thesis},
+    pdfkeywords={Thesis Template}
+}
