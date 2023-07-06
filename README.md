@@ -1,2 +1,2 @@
 # obs_gradupohja
-Thesis template for Oulu Business School
+**Unofficial** thesis template for Oulu Business School. Work in progress. 
