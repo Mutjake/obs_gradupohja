@@ -1,9 +1,9 @@
-\documentclass[a4paper,12pt,twoside]{report} %% The Internet told me that report is better for long things such as thesis: https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1)%3A_Basic_Structure
+\documentclass[a4paper,12pt]{article} %% The Internet told me that report is better for long things such as thesis: https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1)%3A_Basic_Structure
 
 %\usepackage{showframe}
 
 \usepackage{obsthesis}
-
+\usepackage{lipsum}
 % Remember to define these in the .sty file in case you want to rename or add these
 \author{Firstname Lastname}
 \title{Title of the Thesis}
@@ -21,11 +21,22 @@
 \import{./}{titlepage.tex}
 \end{titlepage}
 
+\thispagestyle{empty}
+\tableofcontents
+
 \section{Introduction}
+\setcounter{page}{3}
 
 Example reference: \autocite{sigfridsson}
+\lipsum[22-24]
+
+\subsection{Example subsection}
+
+\lipsum[2-12]
 
 \section{Conclusions}
+
+\lipsum[15-20]
 
 
 %%% REFERENCES %%%
