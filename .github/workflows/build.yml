@@ -23,6 +23,5 @@ jobs:
           path: example.pdf
       - name: release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: example.pdf
