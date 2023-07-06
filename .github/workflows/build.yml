@@ -14,10 +14,22 @@ jobs:
           latexmk_use_xelatex: true
           extra_fonts: |
             ./assets/fonts/Libertinus-7.040/static/OTF/*.otf
+      - name: version
+        run: echo "::set-output name=version::$(date +"%Y-%m-%dT%H:%M:%S%z")"
+        id: version
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
           path: example.pdf
-
-# see https://github.com/xu-cheng/latex-action
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ github.ref }}
+          body_path: example.pdf
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
