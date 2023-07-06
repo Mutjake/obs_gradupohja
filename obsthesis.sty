@@ -91,7 +91,4 @@
 \renewcommand{\@tocrmarg}{1.55em}
 \patchcmd{\l@section}{#1}{\MakeUppercase{#1}}{}{}% Sections use UPPERCASE in ToC
 
-\let\tableofcontentsold\tableofcontents
-\renewcommand{\tableofcontents}[1]{\thispagestyle{empty}\tableofcontentsold}
-
 \onehalfspacing
