@@ -54,6 +54,10 @@
 \titlespacing*{\section}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
 \titleformat*{\subsection}{\normalfont\fontsize{12}{15}\bfseries}
 \titlespacing*{\subsection}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+\setlength{\parindent}{0em} % prevent intendation on new paragraph start
+\setlength{\parskip}{2em}   % separate paragraphs with empty line
+\widowpenalties 1 10000     % these two lines...
+\raggedbottom               % ...prevent newpage within a paragraph
 %\titleformat*{\subsubsection}{\itshape\subsubsectionfont}
 
 \def\author{\def\author}
@@ -93,4 +97,4 @@
 
 \onehalfspacing
 
-\setlength\bibitemsep{5\itemsep}
+\setlength\bibitemsep{3\itemsep}
